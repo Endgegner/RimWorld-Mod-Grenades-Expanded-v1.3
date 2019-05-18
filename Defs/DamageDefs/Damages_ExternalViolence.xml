@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<!-- ==================== Stasis ========================== -->
+  <DamageDef ParentName="StunBase"> <!-- Flame -->
+	<defName>Electroburn</defName>
+	<label>Electroburn</label>
+	<workerClass>DamageWorker_AddInjury</workerClass>
+	<bluntStunDuration>3</bluntStunDuration>
+	<defaultArmorPenetration>0</defaultArmorPenetration>
+	<defaultDamage>3</defaultDamage>
+	<explosionCellMote>Mote_BlastEMP</explosionCellMote>
+	<externalViolenceForMechanoids>true</externalViolenceForMechanoids>
+	<harmsHealth>true</harmsHealth>
+	<deathMessage>{0} died to electroburn.</deathMessage>
+	<defaultStoppingPower>0.5</defaultStoppingPower>
+	<explosionColorCenter>(1, 1, 0, 0.5)</explosionColorCenter>
+    <explosionColorEdge>(1, 1, 1, 0.2)</explosionColorEdge>
+  </DamageDef>
+<!-- ==================== Venom ========================== -->
+  <DamageDef ParentName="Bomb">
+	<defName>HornetVenom</defName>
+	<label>hornet stings</label>
+	<workerClass>DamageWorker_Stab</workerClass>
+	<bluntStunDuration>1</bluntStunDuration>
+	<defaultArmorPenetration>0</defaultArmorPenetration>
+	<defaultDamage>1</defaultDamage>
+	<deathMessage>{0} died to venom.</deathMessage>
+	<defaultStoppingPower>1</defaultStoppingPower>
+	<explosionAffectOutsidePartsOnly>true</explosionAffectOutsidePartsOnly>
+	<explosionCellMote>Mote_BlastDry</explosionCellMote>
+	<explosionColorCenter>(1, 1, 0, 0.5, 0.3)</explosionColorCenter>
+    <explosionColorEdge>(1, 1, 1, 0.2, 0.1)</explosionColorEdge>
+	<explosionHeatEnergyPerCell>0</explosionHeatEnergyPerCell>
+	<externalViolence>true</externalViolence>
+	<externalViolenceForMechanoids>false</externalViolenceForMechanoids>
+	<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+	<harmsHealth>true</harmsHealth>
+	<makesAnimalsFlee>true</makesAnimalsFlee>
+	<soundExplosion>AngryBees</soundExplosion>
+	<additionalHediffs>
+	<li>
+		<hediff>Trunken_hediff_Stings</hediff>
+		<severityPerDamageDealt>0.01</severityPerDamageDealt>
+		<victimSeverityScaling>ToxicSensitivity</victimSeverityScaling>
+	</li>
+	</additionalHediffs>
+  </DamageDef>
+<!-- ==================== Toxic ========================== -->
+  <DamageDef ParentName="Flame"> <!-- Smoke -->
+	<defName>ToxicGasCloud</defName>
+	<label>toxic gas</label>
+	<workerClass>DamageWorker_Flame</workerClass>
+    <explosionCellMote>Mote_BlastExtinguisher</explosionCellMote>
+    <explosionColorEdge>(0, 0.5, 0.5, 0.15)</explosionColorEdge>
+	<externalViolence>true</externalViolence>
+	<deathMessage>{0} was killed by toxicity.</deathMessage>
+	<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <harmsHealth>true</harmsHealth>
+    <defaultDamage>2</defaultDamage>
+	<makesAnimalsFlee>true</makesAnimalsFlee>
+	<externalViolenceForMechanoids>true</externalViolenceForMechanoids>
+	<soundExplosion>Explosion_Bomb</soundExplosion> <!-- Smoke -->
+	<additionalHediffs>
+	<li>
+		<hediff>Trunken_hediff_ToxicBrew</hediff>
+		<severityPerDamageDealt>0.01</severityPerDamageDealt>
+		<victimSeverityScaling>ToxicSensitivity</victimSeverityScaling>
+	</li>
+    <li>
+        <hediff>ToxicBuildup</hediff>
+        <severityPerDamageDealt>0.001</severityPerDamageDealt>
+        <victimSeverityScaling>ToxicSensitivity</victimSeverityScaling>
+	</li>
+	</additionalHediffs>
+  </DamageDef>
+<!-- ==================== Acid ========================== -->
+  <DamageDef Name="Flame">
+	<defName>GrenadeAcidBomb</defName>
+	<label>acidburn</label>
+	<workerClass>DamageWorker_Flame</workerClass>
+	<externalViolence>true</externalViolence>
+	<deathMessage>{0} has given in to acid.</deathMessage>
+	<hediff>Trunken_hediff_Chemicals</hediff>
+	<explosionAffectOutsidePartsOnly>true</explosionAffectOutsidePartsOnly>
+	<canInterruptJobs>true</canInterruptJobs>
+    <minDamageToFragment>1</minDamageToFragment>
+    <defaultDamage>3</defaultDamage>
+	<defaultArmorPenetration>0.1</defaultArmorPenetration>
+	<explosionHeatEnergyPerCell>1</explosionHeatEnergyPerCell>
+    <explosionCellMote>Mote_BlastFlame</explosionCellMote>
+    <soundExplosion>Explosion_Flame</soundExplosion> <!-- Explosion_Smoke -->
+    <explosionColorCenter>(0, 1, 0, 0.5)</explosionColorCenter>
+    <explosionColorEdge>(0, 1, 0, 0.1)</explosionColorEdge>
+  </DamageDef>
+<!-- ==================== Poison ========================== -->
+  <DamageDef ParentName="Bomb"> <!-- Smoke -->
+	<defName>GrenadePoisonIvy</defName>
+	<label>poisonous substance</label>
+    <defaultDamage>7</defaultDamage>
+    <explosionColorCenter>(0, 0.5, 0, 0.5)</explosionColorCenter>
+    <explosionColorEdge>(0.5, 0.5, 0, 0.5)</explosionColorEdge>
+	<additionalHediffs>
+	<li>
+		<hediff>Trunken_hediff_Poison</hediff>
+		<severityPerDamageDealt>0.01</severityPerDamageDealt>
+		<victimSeverityScaling>ToxicSensitivity</victimSeverityScaling>
+	</li>
+	</additionalHediffs>
+  </DamageDef>
+
+</Defs>
